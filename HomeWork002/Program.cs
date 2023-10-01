@@ -23,13 +23,16 @@
 // Console.Clear();
 // Console.WriteLine("Введите число ");
 // int a = Convert.ToInt32(Console.ReadLine());
-// int a1 = a / 100;
-// int a2 = a % 10;
 
-// if (a1 > 0)
-//     Console.WriteLine(a2);
+// if (a < 100)
+//      Console.WriteLine("Третьей цифры нет");
 // else
-//     Console.WriteLine("Третьей цифры нет");
+// {
+//      while (a > 999)
+//           a = a / 10;
+
+// Console.WriteLine(a = a % 10);
+// }
 
 //-------------------------------------------------------------------------------------------
 
@@ -64,25 +67,25 @@
 
 // Второй способ
 
-string f(int n)
-{
-    if (n < 1 || n > 7)
-        return "Вы ввели некорректное число!";
-    else if (n == 1)
-         return "Нет";
-    else if (n == 2)
-         return "Нет";
-    else if (n == 3)
-         return "Нет";
-    else if (n == 4)
-         return "Нет";
-    else if (n == 5)
-         return "Нет";
-    else if (n == 6)
-         return "Да";
-         return"Да";
-}
+// string WeekEnd(int n)
+// {
+//     if (n < 1 || n > 7)
+//         return "Вы ввели некорректное число!";
+//     else if (n == 1)
+//          return "Нет";
+//     else if (n == 2)
+//          return "Нет";
+//     else if (n == 3)
+//          return "Нет";
+//     else if (n == 4)
+//          return "Нет";
+//     else if (n == 5)
+//          return "Нет";
+//     else if (n == 6)
+//          return "Да";
+//          return"Да";
+// }
 
-Console.Write("Введите число: ");
-int n = Convert.ToInt32(Console.ReadLine());
-Console.Write($"- {f(n)}"); 
+// Console.Write("Введите число: ");
+// int n = Convert.ToInt32(Console.ReadLine());
+// Console.Write($"- {WeekEnd(n)}"); 
