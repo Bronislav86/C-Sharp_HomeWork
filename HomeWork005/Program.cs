@@ -36,7 +36,7 @@ double CalcDifferenceBetweenMaxMin(double[] array)
     {     
         if (max > array[i]) max = array[i];
             else if (min < array[i]) min = array[i];
-        diff = max - min;
+        diff = (max - min) * -1;
     }
     return diff;
 }
