@@ -44,20 +44,51 @@ Console.WriteLine(Length(pointA, pointB));
 // 0, 7, 8, -2, -2 -> 2
 // 1, -7, 567, 89, 223-> 4
 
-// Console.Clear();
-// Console.WriteLine("Введите нескольки чисел: ");
-// int[] array = Console.ReadLine().Split(" ").Select(x => int.Parse(x)).ToArray();
+using System.Collections;
+using System.Security.Principal;
 
-// int PositivNumber(int[] array)
-// {
-//     int count = 0;
-//     for (int i = 0; i < array.Length; i++)
-//         if (array[i] > 0) count ++;
-//     return count;
-// }
+int Prompt(string message) //считывает число из консоли
+{
+    System.Console.Write(message); //вывести сообщеине
+    string value = Console.ReadLine(); //считывает из консоли строку
+    int result = Convert.ToInt32(value); // преобразует строку в целое число
+    return result;
+}
 
-// PositivNumber(array);
-// Console.WriteLine(PositivNumber(array));
+int [] InputArray (int length)
+{
+    int[] array = new int[length];
+    for (int i = 0; i < array.Length; i++)
+        {
+            array[i] = Prompt($"Ведите {i + 1}-й элемент ");
+        }
+        return array;
+}
+
+int PositivNumber(int[] array)
+{
+    int count = 0;
+    for (int i = 0; i < array.Length; i++)
+        if (array[i] > 0) count ++;
+    return count;
+}
+
+void PrintArray (int[] arr)
+{
+    for (int i =  0; i < arr.Length; i++)
+    {
+        Console.WriteLine($"a[{i}] = {arr[i]}");
+    }
+}
+
+
+Console.Clear();
+int length = Prompt("Введите количество элементов >");
+int[] array;
+array = InputArray(length);
+PrintArray(array);
+PositivNumber(array);
+Console.WriteLine($"Количество чисел больше 0: {PositivNumber(array)}");
 
 //--------------------------------------------------------------------------------------------
 
@@ -74,6 +105,9 @@ Console.WriteLine(Length(pointA, pointB));
 // x = (b2 - b1) / (k1-k2)
 // y = k1 * x + b1
 
+
+//----------------------------I вариант-----------------------------------------------
+/*
 void IntersectionPoint (double b1, double k1, double b2, double k2, double x, double y)
 {
     x = (b2 - b1) / (k1 - k2);
@@ -93,7 +127,8 @@ double k2 = Convert.ToInt32(Console.ReadLine());
 double x = 0;
 double y = 0;
 IntersectionPoint(b1, k1, b2, k2, x, y);
-
+*/
+//------------------II вариант--------------------------------
 
 // Console.Clear();
 // Console.WriteLine("Введите координату b1: ");
