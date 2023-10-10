@@ -44,51 +44,51 @@ Console.WriteLine(Length(pointA, pointB));
 // 0, 7, 8, -2, -2 -> 2
 // 1, -7, 567, 89, 223-> 4
 
-using System.Collections;
-using System.Security.Principal;
+// using System.Collections;
+// using System.Security.Principal;
 
-int Prompt(string message) //считывает число из консоли
-{
-    System.Console.Write(message); //вывести сообщеине
-    string value = Console.ReadLine(); //считывает из консоли строку
-    int result = Convert.ToInt32(value); // преобразует строку в целое число
-    return result;
-}
+// int Prompt(string message) //считывает число из консоли
+// {
+//     System.Console.Write(message); //вывести сообщеине
+//     string value = Console.ReadLine(); //считывает из консоли строку
+//     int result = Convert.ToInt32(value); // преобразует строку в целое число
+//     return result;
+// }
 
-int [] InputArray (int length)
-{
-    int[] array = new int[length];
-    for (int i = 0; i < array.Length; i++)
-        {
-            array[i] = Prompt($"Ведите {i + 1}-й элемент ");
-        }
-        return array;
-}
+// int [] InputArray (int length)
+// {
+//     int[] array = new int[length];
+//     for (int i = 0; i < array.Length; i++)
+//         {
+//             array[i] = Prompt($"Ведите {i + 1}-й элемент ");
+//         }
+//         return array;
+// }
 
-int PositivNumber(int[] array)
-{
-    int count = 0;
-    for (int i = 0; i < array.Length; i++)
-        if (array[i] > 0) count ++;
-    return count;
-}
+// int PositivNumber(int[] array)
+// {
+//     int count = 0;
+//     for (int i = 0; i < array.Length; i++)
+//         if (array[i] > 0) count ++;
+//     return count;
+// }
 
-void PrintArray (int[] arr)
-{
-    for (int i =  0; i < arr.Length; i++)
-    {
-        Console.WriteLine($"a[{i}] = {arr[i]}");
-    }
-}
+// void PrintArray (int[] arr)
+// {
+//     for (int i =  0; i < arr.Length; i++)
+//     {
+//         Console.WriteLine($"a[{i}] = {arr[i]}");
+//     }
+// }
 
 
-Console.Clear();
-int length = Prompt("Введите количество элементов >");
-int[] array;
-array = InputArray(length);
-PrintArray(array);
-PositivNumber(array);
-Console.WriteLine($"Количество чисел больше 0: {PositivNumber(array)}");
+// Console.Clear();
+// int length = Prompt("Введите количество элементов >");
+// int[] array;
+// array = InputArray(length);
+// PrintArray(array);
+// PositivNumber(array);
+// Console.WriteLine($"Количество чисел больше 0: {PositivNumber(array)}");
 
 //--------------------------------------------------------------------------------------------
 
