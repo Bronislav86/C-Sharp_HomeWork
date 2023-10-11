@@ -109,7 +109,7 @@ public class Answer {
 // FindNumberByPosition. Если такого элемента нет, вывести на экран "There is no such index". Если элемент есть, вывести на
 // экран "The number in [{x}, {y}] is {значение}".
 
-void PrintArray (int [,] matrix)
+void PrintArray(int[,] matrix)
 {
   // Введите свое решение ниже
   for (int i = 0; i < matrix.GetLength(0); i++)
@@ -130,8 +130,7 @@ int[,] CreateIncreasingMatrix(int n, int m, int k)
   {
     for (int j = 0; j < m; j++)
     {
-      matrix[i, j] = new Random().Next(0, 10);
-      matrix [i, j] += k;
+      matrix[i, j] = new Random().Next(9, 10) + k;
     }
   }
   return matrix;
@@ -143,6 +142,6 @@ Console.Write("Введите число столбцов: ");
 int m = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите коэф-т увеличения: ");
 int k = Convert.ToInt32(Console.ReadLine());
-int[,] matrix = new int [n, m];
+//int[,] matrix = new int [n, m];
 CreateIncreasingMatrix(n, m, k);
-PrintArray(matrix);
+PrintArray(CreateIncreasingMatrix(n, m, k));
