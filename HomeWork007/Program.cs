@@ -136,12 +136,36 @@ int[,] CreateIncreasingMatrix(int n, int m, int k)
   return matrix;
 }
 
+int[] FindNumberByPosition(int[,] matrix, int rowPosition, int columnPosition)
+{
+  // Введите свое решение ниже
+  int [] result = new int[2];
+  for (int i = 0; i < matrix.GetLength(0); i++)
+  {
+    for (int j = 0; j < matrix.GetLength(1); j++)
+    {
+      if (i == rowPosition && j == columnPosition)
+      {
+        result[i] = matrix[i, j];
+        result[i+1] = 0;
+      }
+      else result[i] = 0;    
+    }
+  }
+return result;
+
+}
+
 Console.Write("Введите число строк: ");
 int n = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите число столбцов: ");
 int m = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите коэф-т увеличения: ");
 int k = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите искомую строку: ");
+// int rowPosition = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите искомый столбец: ");
+// int columnPosition = Convert.ToInt32(Console.ReadLine());
 //int[,] matrix = new int [n, m];
 CreateIncreasingMatrix(n, m, k);
 PrintArray(CreateIncreasingMatrix(n, m, k));
