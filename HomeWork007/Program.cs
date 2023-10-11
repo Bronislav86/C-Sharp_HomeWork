@@ -111,21 +111,38 @@ public class Answer {
 
 void PrintArray (int [,] matrix)
 {
-      // Введите свое решение ниже
-    for (int i = 0; i < matrix.GetLength(0); i++)
+  // Введите свое решение ниже
+  for (int i = 0; i < matrix.GetLength(0); i++)
+  {
+    for (int j = 0; j < matrix.GetLength(1); j++)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
-        {
-            Console.Write($"{matrix[i, j]} \t");
-        }
-        Console.WriteLine();
+      Console.Write($"{matrix[i, j]} \t");
     }
-
+    Console.WriteLine();
+  }
 }
 
 int[,] CreateIncreasingMatrix(int n, int m, int k)
 {
-      // Введите свое решение ниже
-
-
+  // Введите свое решение ниже
+  int[,] matrix = new int[n, m];
+  for (int i = 0; i < n; i++)
+  {
+    for (int j = 0; j < m; j++)
+    {
+      matrix[i, j] = new Random().Next(0, 10);
+      matrix [i, j] += k;
+    }
+  }
+  return matrix;
 }
+
+Console.Write("Введите число строк: ");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите число столбцов: ");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите коэф-т увеличения: ");
+int k = Convert.ToInt32(Console.ReadLine());
+int[,] matrix = new int [n, m];
+CreateIncreasingMatrix(n, m, k);
+PrintArray(matrix);
