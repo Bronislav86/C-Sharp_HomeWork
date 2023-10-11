@@ -109,6 +109,8 @@ public class Answer {
 // FindNumberByPosition. Если такого элемента нет, вывести на экран "There is no such index". Если элемент есть, вывести на
 // экран "The number in [{x}, {y}] is {значение}".
 
+using System.Numerics;
+
 void PrintArray(int[,] matrix)
 {
   // Введите свое решение ниже
@@ -130,7 +132,7 @@ int[,] CreateIncreasingMatrix(int n, int m, int k)
   {
     for (int j = 0; j < m; j++)
     {
-      matrix[i, j] = new Random().Next(9, 10) + k;
+      matrix[i, j] = new Random().Next(0, 100) + k;
     }
   }
   return matrix;
@@ -139,21 +141,32 @@ int[,] CreateIncreasingMatrix(int n, int m, int k)
 int[] FindNumberByPosition(int[,] matrix, int rowPosition, int columnPosition)
 {
   // Введите свое решение ниже
-  int [] result = new int[2];
+  int [] results = new int[2];
   for (int i = 0; i < matrix.GetLength(0); i++)
   {
     for (int j = 0; j < matrix.GetLength(1); j++)
     {
       if (i == rowPosition && j == columnPosition)
       {
-        result[i] = matrix[i, j];
-        result[i+1] = 0;
+        results[0] = 1;
+        results[1] = 0;
       }
-      else result[i] = 0;    
+      else {results[0] = 0;}   
     }
   }
-return result;
+  return results;
+}
 
+void PrintCheckIfError(int[] results, int X, int Y)
+{
+  // Введите свое решение ниже
+  int X = row
+  if (results[0] == 1)
+  {
+    Console.WriteLine($"The number in [{X}, {Y}] is {matrix[i, j]}");
+  }
+  else Console.WriteLine("There is no such index");
+  
 }
 
 Console.Write("Введите число строк: ");
@@ -162,10 +175,28 @@ Console.Write("Введите число столбцов: ");
 int m = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите коэф-т увеличения: ");
 int k = Convert.ToInt32(Console.ReadLine());
-// Console.Write("Введите искомую строку: ");
-// int rowPosition = Convert.ToInt32(Console.ReadLine());
-// Console.Write("Введите искомый столбец: ");
-// int columnPosition = Convert.ToInt32(Console.ReadLine());
 //int[,] matrix = new int [n, m];
 CreateIncreasingMatrix(n, m, k);
 PrintArray(CreateIncreasingMatrix(n, m, k));
+Console.Write("Введите искомую строку: ");
+int rowPosition = Convert.ToInt32(Console.ReadLine());
+Console.Write("Введите искомый столбец: ");
+int columnPosition = Convert.ToInt32(Console.ReadLine());
+FindNumberByPosition(CreateIncreasingMatrix(n, m, k), rowPosition, columnPosition);
+Console.WriteLine(FindNumberByPosition(CreateIncreasingMatrix(n, m, k), rowPosition, columnPosition));
+
+
+///
+
+
+int[] FindNumberByPosition(int[,] matrix, int rowPosition, int columnPosition)
+{
+  // Введите свое решение ниже
+  int[] results = new int[2];
+  if (matrix[0, 0] <= matrix[rowPosition, columnPosition]&& matrix[rowPosition, columnPosition] < matrix.Length)
+  {
+    results[0] = 1;
+    results[1] = 0;
+  }
+  else results[0] = 0;
+} 
