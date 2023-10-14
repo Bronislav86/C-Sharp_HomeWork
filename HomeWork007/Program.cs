@@ -3,7 +3,8 @@
 Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
 
 Внутри класса Answer напишите метод CreateRandomMatrix, который принимал бы числа m и n
-(размерность массива), а также minLimitRandom и maxLimitRandom, которые указывают на минимальную и максимальную границы случайных чисел.
+(размерность массива), а также minLimitRandom и maxLimitRandom, которые указывают на минимальную и
+максимальную границы случайных чисел.
 
 Также, задайте метод PrintArray, который выводил бы массив на экран.
 
@@ -23,7 +24,7 @@ public class Answer {
     {
         for (int j = 0; j < n; j++)
         {
-            matrix[i, j] = new Random().NextDouble() * (maxLimitRandom -                                  minLimitRandom) + minLimitRandom;
+            matrix[i, j] = new Random().NextDouble() * (maxLimitRandom - minLimitRandom) + minLimitRandom;
         }
     }
     return matrix;
@@ -109,94 +110,266 @@ public class Answer {
 // FindNumberByPosition. Если такого элемента нет, вывести на экран "There is no such index". Если элемент есть, вывести на
 // экран "The number in [{x}, {y}] is {значение}".
 
-using System.Numerics;
+// using System.Numerics;
 
-void PrintArray(int[,] matrix)
-{
-  // Введите свое решение ниже
-  for (int i = 0; i < matrix.GetLength(0); i++)
-  {
-    for (int j = 0; j < matrix.GetLength(1); j++)
-    {
-      Console.Write($"{matrix[i, j]} \t");
-    }
-    Console.WriteLine();
-  }
-}
+// void PrintArray(int[,] matrix)
+// {
+//   // Введите свое решение ниже
+//   for (int i = 0; i < matrix.GetLength(0); i++)
+//   {
+//     for (int j = 0; j < matrix.GetLength(1); j++)
+//     {
+//       Console.Write($"{matrix[i, j]} \t");
+//     }
+//     Console.WriteLine();
+//   }
+// }
 
-int[,] CreateIncreasingMatrix(int n, int m, int k)
-{
-  // Введите свое решение ниже
-  int[,] matrix = new int[n, m];
-  for (int i = 0; i < n; i++)
-  {
-    for (int j = 0; j < m; j++)
-    {
-      matrix[i, j] = new Random().Next(0, 100) + k;
-    }
-  }
-  return matrix;
-}
+// int[,] CreateIncreasingMatrix(int n, int m, int k)
+// {
+//   // Введите свое решение ниже
+//   int[,] matrix = new int[n, m];
+//   for (int i = 0; i < n; i++)
+//   {
+//     for (int j = 0; j < m; j++)
+//     {
+//       matrix[i, j] = new Random().Next(0, 100) + k;
+//     }
+//   }
+//   return matrix;
+// }
 
-int[] FindNumberByPosition(int[,] matrix, int rowPosition, int columnPosition)
-{
-  // Введите свое решение ниже
-  int [] results = new int[2];
-  for (int i = 0; i < matrix.GetLength(0); i++)
-  {
-    for (int j = 0; j < matrix.GetLength(1); j++)
+// int[] FindNumberByPosition(int[,] matrix, int rowPosition, int columnPosition)
+// {
+//   //Введите свое решение ниже
+//   int[] results = new int[2];
+//   if (rowPosition < matrix.GetLength(0) && columnPosition < matrix.GetLength(1))
+//   {
+//     results[0] = matrix[i, j];
+//     results[1] = 0;
+//   }
+//   else 
+//   {
+//     results[0] = 0;
+//     results[1] = 0;
+//   }
+//   return results;
+//   // int[] results = new int[2];
+//   // for (int i = 0; i < matrix.GetLength(0); i++)
+//   // {
+//   //   for (int j = 0; j < matrix.GetLength(1); j++)
+//   //   {
+//   //     if (i == rowPosition && j == columnPosition)
+//   //     {
+//   //       results[0] = 1;
+//   //       results[1] = 0;
+//   //     }
+//   //     else { results[0] = 0; }
+//   //   }
+//   // }
+//   // return results;
+// }
+
+// void PrintCheckIfError(int[] results, int X, int Y)
+// {
+//   // Введите свое решение ниже
+//   if (results[0] == 1)
+//   {
+//     Console.WriteLine($"The number in [{X}, {Y}] is {matrix[i, j]}");
+//   }
+//   else Console.WriteLine("There is no such index");
+
+// }
+
+// Console.Write("Введите число строк: ");
+// int n = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите число столбцов: ");
+// int m = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите коэф-т увеличения: ");
+// int k = Convert.ToInt32(Console.ReadLine());
+// //int[,] matrix = new int [n, m];
+// CreateIncreasingMatrix(n, m, k);
+// PrintArray(CreateIncreasingMatrix(n, m, k));
+// Console.Write("Введите искомую строку: ");
+// int rowPosition = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введите искомый столбец: ");
+// int columnPosition = Convert.ToInt32(Console.ReadLine());
+// FindNumberByPosition(CreateIncreasingMatrix(n, m, k), rowPosition, columnPosition);
+// Console.WriteLine(FindNumberByPosition(CreateIncreasingMatrix(n, m, k), rowPosition, columnPosition));
+// PrintCheckIfError(results, X, Y);
+
+
+// void InputMatrix(int[,] matrix, int k)
+// {
+//   int l = 1;
+//   for (int i = 0; i < matrix.GetLength(0); i++)
+//   {
+//     for (int j = 0; j < matrix.GetLength(1); j++)
+//     {
+//       matrix[i, j] = l;
+//       l += k;
+//     }
+//     Console.WriteLine();
+//   }
+// }
+
+// int ReleaseMatrix(int[,] matrix, int x, int y)
+// {
+//   int[] results = new int[2];
+//   int count = results.Length;
+//   results[1] = 0;
+//   for (int l = 0; l < count; l++)
+//   {
+//     for (int i = 0; i < matrix.GetLength(0); i++)
+//     {
+//       for (int j = 0; j < matrix.GetLength(1); j++)
+//       {
+//         if (x < matrix.GetLength(0) && y < matrix.GetLength(1))
+        
+//           results[0] = matrix [i, j];
+        
+//         else
+        
+//           results[0] = 0;      
+//       }
+//     }
+//   }
+//   return results[0];
+// }
+
+
+
+// void PrintMatrix(int [,] matr)
+// {
+//   for (int i = 0; i < matr.GetLength(0); i++)
+//   {
+//     for (int j = 0; j < matr.GetLength(1); j++)
+//     {
+//       Console.Write($"{matr[i,j]} \t");
+//     }
+//     Console.WriteLine();
+//   }
+// }
+
+// void PrintCheckIfError (int[] results, int x, int y)
+//     {
+//       // Введите свое решение ниже
+//       for (int i = 0; i < results.Length; i++)
+//       {
+//         if (results[0] != 0)  Console.WriteLine($"The number in [{x}, {y}] is {result[x, y]}");
+//         else  Console.WriteLine("There is no such index");     
+//       }
+//     }
+
+// Console.Clear();
+// Console.Write("Введитe размер матрицы: ");
+// int[] size = Console.ReadLine().Split(" ").Select(x => int.Parse(x)).ToArray(); // 4 3
+// int[,] matrix = new int[size[0], size[1]];
+// Console.Write("Введитe k: ");
+// int k = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введитe Х: ");
+// int x = Convert.ToInt32(Console.ReadLine());
+// Console.Write("Введитe Y: ");
+// int y = Convert.ToInt32(Console.ReadLine());
+// InputMatrix(matrix, k);
+// PrintMatrix(matrix);
+// ReleaseMatrix(matrix, x, y);
+// PrintCheckIfError (results, x, y);
+
+
+//-------------Задача 3--------------------------------------------------------------------------
+
+using System;
+
+public class Answer {
+    public static void PrintArray (int [,] matrix)
     {
-      if (i == rowPosition && j == columnPosition)
+      // Введите свое решение ниже
+      for (int i = 0; i < matrix.GetLength(0); i++)
       {
-        results[0] = 1;
-        results[1] = 0;
-      }
-      else {results[0] = 0;}   
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+          Console.Write($"{matrix[i,j]} \t");
+        }
+        Console.WriteLine();
+      }    
+
     }
-  }
-  return results;
-}
-
-void PrintCheckIfError(int[] results, int X, int Y)
-{
-  // Введите свое решение ниже
-  int X = row
-  if (results[0] == 1)
-  {
-    Console.WriteLine($"The number in [{X}, {Y}] is {matrix[i, j]}");
-  }
-  else Console.WriteLine("There is no such index");
   
+    public static int[,] CreateIncreasingMatrix(int n, int m, int k)
+    {
+      // Введите свое решение ниже
+      int[,] result = new int[n, m];
+      int l = 1;
+      for (int i = 0; i < result.GetLength(0); i++)
+      {
+        for (int j = 0; j < result.GetLength(1); j++)
+        {
+          result[i, j] = l;
+          l += k;
+        }
+        Console.WriteLine();
+      }
+      return result;
+    }
+  
+    static void PrintListAvr (double [] list)
+    {
+      // Введите свое решение ниже
+      Console.WriteLine("The averages in columns are:");
+      for (int i = 0; i < list.Length; i++)
+    {
+      string result = string.Format("{0:f}", list[i]);
+      Console.Write($"{result}\t");
+    }
+
+    }
+
+    static double [] FindAverageInColumns (int [,] matrix)
+    { 
+      // Введите свое решение ниже
+      double[] result = new double [matrix.GetLength(1)];
+      double averageValue = 0;
+      int l = 0;
+      for (int j = 0; j < matrix.GetLength(1); j++)
+      {               
+        for (int i = 0; i < matrix.GetLength(0); i++)
+        {
+          while (i < matrix.GetLength(0))
+          {
+            averageValue += matrix[i, j];
+            i++;
+          }
+          averageValue /= matrix.GetLength(0);
+          result[l] = averageValue;
+          averageValue = 0;
+          l++;
+        }
+      }
+      return result;
+    }
+
+
+    // Не удаляйте и не меняйте метод Main! 
+    static public void Main(string[] args) {
+        int n, m, k;
+
+        if (args.Length >= 3) {
+           n = int.Parse(args[0]);
+           m = int.Parse(args[1]);
+           k = int.Parse(args[2]);
+        } else {
+           // Здесь вы можете поменять значения для отправки кода на Выполнение
+           n = 4;
+           m = 5;
+           k = 3;
+        }
+
+        // Не удаляйте строки ниже
+        int[,] result = CreateIncreasingMatrix(n, m, k);
+        PrintArray(result);
+        PrintListAvr(FindAverageInColumns(result));
+    }
 }
 
-Console.Write("Введите число строк: ");
-int n = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите число столбцов: ");
-int m = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите коэф-т увеличения: ");
-int k = Convert.ToInt32(Console.ReadLine());
-//int[,] matrix = new int [n, m];
-CreateIncreasingMatrix(n, m, k);
-PrintArray(CreateIncreasingMatrix(n, m, k));
-Console.Write("Введите искомую строку: ");
-int rowPosition = Convert.ToInt32(Console.ReadLine());
-Console.Write("Введите искомый столбец: ");
-int columnPosition = Convert.ToInt32(Console.ReadLine());
-FindNumberByPosition(CreateIncreasingMatrix(n, m, k), rowPosition, columnPosition);
-Console.WriteLine(FindNumberByPosition(CreateIncreasingMatrix(n, m, k), rowPosition, columnPosition));
-
-
-///
-
-
-int[] FindNumberByPosition(int[,] matrix, int rowPosition, int columnPosition)
-{
-  // Введите свое решение ниже
-  int[] results = new int[2];
-  if (matrix[0, 0] <= matrix[rowPosition, columnPosition]&& matrix[rowPosition, columnPosition] < matrix.Length)
-  {
-    results[0] = 1;
-    results[1] = 0;
-  }
-  else results[0] = 0;
-} 
+/// попробовать заполнить матрицу через NextDouble!---------------
