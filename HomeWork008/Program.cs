@@ -86,3 +86,5 @@ public class Answer
         PrintMatrix(matrix);
     }
 }
+
+//https://ru.stackoverflow.com/questions/1446523/Как-создать-сортировку-двумерного-массива-по-возрастанию-с
