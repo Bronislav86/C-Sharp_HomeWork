@@ -12,31 +12,32 @@ public class Answer
                 Console.Write($"{matrix[i, j]} \t");
             }
             Console.WriteLine();
-        }   
+        }
     }
 
 
     public static void SortRowsDescending(int[,] matrix)
     {
-// Введите свое решение ниже
-        int temporary = 0;
-        for (int i = 0; i < matrix.GetLength(0); i++)
+        // Введите свое решение ниже
+        for (int row = 0; row < matrix.GetLength(0); row++)
         {
-            int minPosition = i;
-
-            for (int j = i + 1; j < matrix.GetLength(1); j++)
+            for (int column = 0; column < matrix.GetLength(1); column++)
             {
-                if (matrix[i, j] > matrix[i, minPosition])
-                    minPosition = j;
+                for (int colSort = 0; colSort < matrix.GetLength(1) - 1; colSort++)
+                {
+                    if (matrix[row, colSort] < matrix[row, colSort + 1])
+                    {
+                        int temp = matrix[row, colSort + 1];
+                        matrix[row, colSort + 1] = matrix[row, colSort];
+                        matrix[row, colSort] = temp;
+                    }
+                }
             }
-            temporary = matrix[i, j];
-            matrix[i, j] = matrix[i, minPosition];
-            matrix[i, minPosition] = temporary;
-        } 
+        }
     }
 
 
-// Не удаляйте и не меняйте метод Main! 
+    // Не удаляйте и не меняйте метод Main! 
     public static void Main(string[] args)
     {
         int[,] matrix;
