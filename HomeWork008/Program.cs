@@ -193,13 +193,23 @@ public class Answer
 {
     public static void MultiplyIfPossible(int[,] matrixA, int[,] matrixB)
     { // Введите свое решение ниже
-
-       }
+        
+    }
 
     public static int[,] MatrixMultiplication(int[,] matrixA, int[,] matrixB)
     {  // Введите свое решение ниже
-
-
+        int[,] multuplicatedMatrix = new int[matrixA.GetLength(0), matrixB.GetLength(1)];
+        for (int row = 0; row < matrixA.GetLength(0); row++)
+        {
+            for (int col = 0; col < matrixA.GetLength(1); col++)
+            {
+                for (int inner = 0; inner < matrixB.GetLength(0); inner++)
+                {
+                    multuplicatedMatrix[row, col] += matrixA[row, inner] * matrixB[inner,col];
+                }
+            }
+        }
+        return multuplicatedMatrix;
     }
 
     public static void PrintMatrix(int[,] matrix)
