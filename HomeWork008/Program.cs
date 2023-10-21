@@ -102,10 +102,10 @@ public class Answer
 //         // Введите свое решение ниже
 //         int summ = 0;
 //             for (int j = 0; j < matrix.GetLength(1); j++)
-//             {                
+//             {
 //                 summ += matrix[row, j];
 //             }
-//         return summ;    
+//         return summ;
 //     }
 
 //     public static int[] MinimumSumRow(int[,] matrix)
@@ -193,27 +193,34 @@ public class Answer
 {
     public static void MultiplyIfPossible(int[,] matrixA, int[,] matrixB)
     { // Введите свое решение ниже
-        
+        //new int[matrixA.GetLength(0), matrixB.GetLength(1)];
+        if (matrixA.GetLength(0) == matrixB.GetLength(1))
+        {
+            int[,] matrix = MatrixMultiplication(matrixA, matrixB);
+            PrintMatrix(matrix);
+        }
+        else
+            Console.WriteLine("It is impossible to multiply.");
     }
 
     public static int[,] MatrixMultiplication(int[,] matrixA, int[,] matrixB)
-    {  // Введите свое решение ниже
-        int[,] multuplicatedMatrix = new int[matrixA.GetLength(0), matrixB.GetLength(1)];
+    { // Введите свое решение ниже
+        int[,] result = new int[matrixA.GetLength(0), matrixB.GetLength(1)];
         for (int row = 0; row < matrixA.GetLength(0); row++)
         {
             for (int col = 0; col < matrixA.GetLength(1); col++)
             {
                 for (int inner = 0; inner < matrixB.GetLength(0); inner++)
                 {
-                    multuplicatedMatrix[row, col] += matrixA[row, inner] * matrixB[inner,col];
+                    result [row, col] += matrixA[row, inner] * matrixB[inner, col];
                 }
             }
         }
-        return multuplicatedMatrix;
+        return result;
     }
 
     public static void PrintMatrix(int[,] matrix)
-    {  // Введите свое решение ниже
+    { // Введите свое решение ниже
         for (int i = 0; i < matrix.GetLength(0); i++)
         {
             for (int j = 0; j < matrix.GetLength(1); j++)
@@ -223,7 +230,8 @@ public class Answer
             Console.WriteLine();
         }
     }
-    // Не удаляйте и не меняйте метод Main! 
+
+    // Не удаляйте и не меняйте метод Main!
     public static void Main(string[] args)
     {
         int[,] matrix;
@@ -233,8 +241,8 @@ public class Answer
             // Если аргументы не переданы, используем матрицу по умолчанию
             matrix = new int[,]
             {
-                {5, 2},
-                {8, 1}
+                { 1, 2 },
+                { 3, 4 }
             };
         }
         else
@@ -263,9 +271,10 @@ public class Answer
         Console.WriteLine("Исходная матрица:");
         PrintMatrix(matrix);
 
-        int[,] matrixB = {
-            {5, 6},
-            {7, 8}
+        int[,] matrixB =
+        {
+            { 5, 6 },
+            { 7, 8 }
         };
 
         Console.WriteLine("\nMatrix B:");
