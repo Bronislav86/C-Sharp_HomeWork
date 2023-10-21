@@ -90,7 +90,98 @@ public class Answer
     }
 }
 */
+//----------------------------Задача 1 Вариант от автотестов--------------------------------------------------
+/*
+using System;
 
+public class Answer
+{
+    public static void PrintMatrix(int[,] matrix)
+    {
+        for (int i = 0; i < matrix.GetLength(0); i++)
+        {
+            for (int j = 0; j < matrix.GetLength(1); j++)
+            {
+                Console.Write($"{matrix[i, j]}\t");
+            }
+            Console.WriteLine();
+        }
+    }
+
+    public static void SortRowsDescending(int[,] matrix)
+    {
+        int j = 0;
+        int k = 0;
+        for (int i = 0; i < matrix.GetLength(0); i++)               //checking all rows
+        {
+            for (j = 0; j < matrix.GetLength(1); j++)                //Starting from each element in column
+            {
+                int max = j;
+                for (k = j; k < matrix.GetLength(1); k++)            // checking if any number is greater than in j-position
+                {
+                    if (matrix[i, max] < matrix[i, k])                         // if new max if found remeber its position                                          
+                    {
+                        max = k;
+                    }
+                }
+                var temp = matrix[i, max];                      // Swap max and current j-position
+                matrix[i, max] = matrix[i, j];
+                matrix[i, j] = temp;
+            }
+        }
+    }
+
+
+    public static void Main(string[] args)
+    {
+        int[,] matrix;
+        if (args.Length == 0)
+        {
+            // Если аргументы не переданы, используем матрицу по умолчанию
+            matrix = new int[,] {
+                {5, 2, 9},
+                {8, 1, 4},
+                {6, 7, 3}
+            };
+        }
+        else
+        {
+            // Иначе, парсим аргументы в двумерный массив
+            string[] rows = args[0].Split(';');
+            matrix = new int[rows.Length, rows[0].Split(',').Length];
+            for (int i = 0; i < rows.Length; i++)
+            {
+                string[] elements = rows[i].Split(',');
+                if (elements.Length != matrix.GetLength(1))
+                {
+                    Console.WriteLine($"Ошибка: Неправильное количество элементов в строке {i + 1}.");
+                    return;
+                }
+                for (int j = 0; j < elements.Length; j++)
+                {
+                    if (int.TryParse(elements[j], out int number))
+                    {
+                        matrix[i, j] = number;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Ошибка при парсинге аргумента {elements[j]}.");
+                        return;
+                    }
+                }
+            }
+        }
+
+        Console.WriteLine("Исходная матрица:");
+        PrintMatrix(matrix);
+
+        SortRowsDescending(matrix);
+
+        Console.WriteLine("\nМатрица с упорядоченными по убыванию строками:");
+        PrintMatrix(matrix);
+    }
+}
+*/
 //-----------------------------------------Задача 2------------------------------------------------------------
 
 // using System;
@@ -186,7 +277,7 @@ public class Answer
 // найти способ выводить оба результата, если есть одинаковая сумма в нескольких строках!!!!!!!!!!!!!!
 
 //------------------------------------Задача 3--------------------------------------------------------------------------
-
+/*
 using System;
 
 public class Answer
@@ -194,7 +285,7 @@ public class Answer
     public static void MultiplyIfPossible(int[,] matrixA, int[,] matrixB)
     { // Введите свое решение ниже
         //new int[matrixA.GetLength(0), matrixB.GetLength(1)];
-        if (matrixA.GetLength(0) == matrixB.GetLength(1))
+        if (matrixA.GetLength(1) == matrixB.GetLength(0))
         {
             int[,] matrix = MatrixMultiplication(matrixA, matrixB);
             PrintMatrix(matrix);
@@ -241,8 +332,8 @@ public class Answer
             // Если аргументы не переданы, используем матрицу по умолчанию
             matrix = new int[,]
             {
-                { 1, 2 },
-                { 3, 4 }
+                { 2, 4 },
+                { 1, 3 }
             };
         }
         else
@@ -285,3 +376,4 @@ public class Answer
         MultiplyIfPossible(matrix, matrixB);
     }
 }
+*/
