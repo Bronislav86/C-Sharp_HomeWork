@@ -93,55 +93,138 @@ public class Answer
 
 //-----------------------------------------Задача 2------------------------------------------------------------
 
+// using System;
+
+// public class Answer
+// {
+//     public static int SumOfRow(int[,] matrix, int row)
+//     {
+//         // Введите свое решение ниже
+//         int summ = 0;
+//             for (int j = 0; j < matrix.GetLength(1); j++)
+//             {                
+//                 summ += matrix[row, j];
+//             }
+//         return summ;    
+//     }
+
+//     public static int[] MinimumSumRow(int[,] matrix)
+//     {
+//         // Введите свое решение ниже
+//         int[] minimumSumRow = new int[3];
+//         int min = SumOfRow(matrix, 0);
+//         minimumSumRow[0] = 0;
+//         minimumSumRow[1] = min;
+//         for (int row = 1; row < matrix.GetLength(0); row++)
+//         {
+//             int sumRow = SumOfRow(matrix, row);
+//             if (sumRow < min || sumRow == min)
+//             {
+//                 min = sumRow;
+//                 minimumSumRow[0] = row;
+//                 minimumSumRow[1] = min;
+//             }
+//         }
+//         return minimumSumRow;
+//     }
+
+//     // Не удаляйте и не меняйте метод Main!
+//     public static void Main(string[] args)
+//     {
+//         int[,] matrix;
+//         if (args.Length == 0)
+//         {
+//             // Здесь вы можете поменять значения для отправки кода на Выполнение
+//             // Если аргументы не переданы, используем матрицу по умолчанию
+
+//             matrix = new int[,]
+//             {
+//                 { 9, 5, 3 },
+//                 { 9, 6, 2 },
+//                 { 7, 6, 5 }
+//             };
+//         }
+//         else
+//         {
+//             // Иначе, парсим аргументы в двумерный массив
+//             string[] rows = args[0].Split(';');
+//             matrix = new int[rows.Length, rows[0].Split(',').Length];
+//             for (int i = 0; i < rows.Length; i++)
+//             {
+//                 string[] elements = rows[i].Split(',');
+//                 for (int j = 0; j < elements.Length; j++)
+//                 {
+//                     if (int.TryParse(elements[j], out int number))
+//                     {
+//                         matrix[i, j] = number;
+//                     }
+//                     else
+//                     {
+//                         Console.WriteLine($"Ошибка при парсинге аргумента {elements[j]}.");
+//                         return;
+//                     }
+//                 }
+//             }
+//         }
+
+//         Console.WriteLine("Исходная матрица:");
+//         for (int i = 0; i < matrix.GetLength(0); i++)
+//         {
+//             for (int j = 0; j < matrix.GetLength(1); j++)
+//             {
+//                 Console.Write($"{matrix[i, j]}\t");
+//             }
+//             Console.WriteLine();
+//         }
+
+//         int[] minSumRow = MinimumSumRow(matrix);
+
+//         Console.WriteLine($"\nСумма наименьшей строки (строка {minSumRow[0] + 1}): {minSumRow[1]}");
+//         Console.WriteLine($"\nСумма элементов в строке {minSumRow[0] + 1}: {minSumRow[1]}");
+//     }
+// }
+// найти способ выводить оба результата, если есть одинаковая сумма в нескольких строках!!!!!!!!!!!!!!
+
+//------------------------------------Задача 3--------------------------------------------------------------------------
+
 using System;
 
 public class Answer
 {
-    public static int SumOfRow(int[,] matrix, int row)
-    {
-        // Введите свое решение ниже
-        int summ = 0;
-            for (int j = 0; j < matrix.GetLength(1); j++)
-            {                
-                summ += matrix[row, j];
-            }
-        return summ;    
+    public static void MultiplyIfPossible(int[,] matrixA, int[,] matrixB)
+    { // Введите свое решение ниже
+
+       }
+
+    public static int[,] MatrixMultiplication(int[,] matrixA, int[,] matrixB)
+    {  // Введите свое решение ниже
+
+
     }
 
-    public static int[] MinimumSumRow(int[,] matrix)
-    {
-        // Введите свое решение ниже
-        int[] minimumSumRow = new int[3];
-        int min = SumOfRow(matrix, 0);
-        minimumSumRow[0] = 0;
-        minimumSumRow[1] = min;
-        for (int row = 1; row < matrix.GetLength(0); row++)
+    public static void PrintMatrix(int[,] matrix)
+    {  // Введите свое решение ниже
+        for (int i = 0; i < matrix.GetLength(0); i++)
         {
-            int sumRow = SumOfRow(matrix, row);
-            if (sumRow < min || sumRow == min)
+            for (int j = 0; j < matrix.GetLength(1); j++)
             {
-                min = sumRow;
-                minimumSumRow[0] = row;
-                minimumSumRow[1] = min;
+                Console.Write($"{matrix[i, j]}\t");
             }
+            Console.WriteLine();
         }
-        return minimumSumRow;
     }
-
-    // Не удаляйте и не меняйте метод Main!
+    // Не удаляйте и не меняйте метод Main! 
     public static void Main(string[] args)
     {
         int[,] matrix;
+
         if (args.Length == 0)
         {
-            // Здесь вы можете поменять значения для отправки кода на Выполнение
             // Если аргументы не переданы, используем матрицу по умолчанию
-
             matrix = new int[,]
             {
-                { 9, 5, 3 },
-                { 9, 6, 2 },
-                { 7, 6, 5 }
+                {5, 2},
+                {8, 1}
             };
         }
         else
@@ -168,18 +251,18 @@ public class Answer
         }
 
         Console.WriteLine("Исходная матрица:");
-        for (int i = 0; i < matrix.GetLength(0); i++)
-        {
-            for (int j = 0; j < matrix.GetLength(1); j++)
-            {
-                Console.Write($"{matrix[i, j]}\t");
-            }
-            Console.WriteLine();
-        }
+        PrintMatrix(matrix);
 
-        int[] minSumRow = MinimumSumRow(matrix);
+        int[,] matrixB = {
+            {5, 6},
+            {7, 8}
+        };
 
-        Console.WriteLine($"\nСумма наименьшей строки (строка {minSumRow[0] + 1}): {minSumRow[1]}");
-        Console.WriteLine($"\nСумма элементов в строке {minSumRow[0] + 1}: {minSumRow[1]}");
+        Console.WriteLine("\nMatrix B:");
+        PrintMatrix(matrixB);
+
+        Console.WriteLine("\nMultiplication result:");
+
+        MultiplyIfPossible(matrix, matrixB);
     }
 }
